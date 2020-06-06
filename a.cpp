@@ -16,13 +16,13 @@ void get_args(int ac, char **av)
  
 void scoot_over(int jj)
 { 
-   for (int k = num_y-1; k > jj; k++)
+   for (int k = num_y+1; k > jj; k--)
       y[k] = y[k-1];
 }
  
 void insert(int new_y)
 { 
-   if (num_y = 0)
+   if (num_y == 0)
    {
       y[0] = new_y;
       return;
@@ -33,12 +33,13 @@ void insert(int new_y)
       if (new_y < y[j])
       {
          scoot_over(j);
-         y[j] = new_y;
-         return;
+       	 y[j] = new_y;
+		 return;
       }
+	  y[num_y] = new_y;
    }
 }
- 
+  
 void process_data()
 {
    for (num_y = 0; num_y < num_inputs; num_y++)
